@@ -8,14 +8,17 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import './css/index.css';
 
 ReactDOM.render(
-  <Router>
-    <Switch>
+  <div id="foo">
+    <Router>
       <App />
-      <Route path="/home" exact component={Home} />
-      <Route path="/search/:q" exact component={Recipes} />
-    </Switch>
-  </Router>,
+        <Switch>
+          <Route path="/home" exact component={Home} />
+          <Route path="/search/:q" exact component={Recipes} />
+        </Switch>
+      </Router>
+    </div>,
   document.getElementById("root")
 );
