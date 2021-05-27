@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./css/app.css";
+import Try from "./components/Try";
+import {
+  generatePath,
+  useHistory
+} from "react-router-dom";
+import SearchBar from "./components/SearchBar";
+import Loading from "./components/Loading";
 
-function App() {
+export default function App() {
+  // const [query, setQuery] = useState("");
+  const [search, setSearch] = useState("");
+  console.log(history)
+  const getData = (e) => {
+    e.preventDefault();
+    setSearch("");
+    const url = generatePath("/search/:q", { q: search });
+  };
+  const onUpdate = (e) => {
+    setSearch(e.target.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="foo">
+      <SearchBar getData={getData} onUpdate={onUpdate} search={search} />
     </div>
   );
 }
-
-export default App;
