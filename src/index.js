@@ -18,7 +18,7 @@ ReactDOM.render(
       <App />
         <Switch>
           <Route path="/home" exact component={Home} />
-          <Route path='/notFound' exact component={NotFound}/>
+          <Route path='/notFound' exact render={()=> (<NotFound keyword="pasta"/>)}/>
           <Route path="/search/:q" exact component={Recipes} />
         </Switch>
       </Router>
